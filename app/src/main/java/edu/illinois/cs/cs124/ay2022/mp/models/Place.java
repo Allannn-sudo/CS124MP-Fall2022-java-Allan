@@ -1,5 +1,7 @@
 package edu.illinois.cs.cs124.ay2022.mp.models;
 
+import java.util.List;
+
 /*
  * Model storing information about a place retrieved from the backend server.
  *
@@ -58,5 +60,10 @@ public final class Place {
 
   public String getDescription() {
     return description;
+  }
+
+  public static List<Place> search(final List<Place> places, final String search) {
+    assert false;
+    return null;
   }
 }
