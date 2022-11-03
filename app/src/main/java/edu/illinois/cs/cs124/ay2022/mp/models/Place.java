@@ -1,6 +1,7 @@
 package edu.illinois.cs.cs124.ay2022.mp.models;
 
 import java.util.List;
+import java.util.ArrayList;
 
 /*
  * Model storing information about a place retrieved from the backend server.
@@ -63,7 +64,38 @@ public final class Place {
   }
 
   public static List<Place> search(final List<Place> places, final String search) {
-    assert false;
-    return null;
+    if (places == null || search == null) {
+      throw new IllegalArgumentException();
+    }
+    if (places.size() == 0 || search.length() == 0 || search.equals(" ")) {
+      return places;
+    }
+    List<Place> copy = new ArrayList<>();
+    String trimmed = search.trim();
+    String trimmed1 = trimmed.toLowerCase();
+    for (Place o : places) {
+      String desc = o.description;
+      String desc1 = desc.replace('.', ' ');
+      String desc2 = desc1.replace('!', ' ');
+      String desc3 = desc2.replace('?', ' ');
+      String desc4 = desc3.replace(',', ' ');
+      String desc5 = desc4.replace(':', ' ');
+      String desc6 = desc5.replace(';', ' ');
+      String desc7 = desc6.replace('/', ' ');
+      String desc8 = desc7.replace("-", "");
+      String desc9 = desc8.replace("(", "");
+      String desc10 = desc9.replace(")", "");
+      String desc11 = desc10.replace("'", "");
+      String desc12 = desc11.toLowerCase();
+      String[] desc13 = desc12.split(" ");
+      for (String b : desc13) {
+        if (trimmed1.equals(b)) {
+          if (!copy.contains(o)) {
+            copy.add(o);
+          }
+        }
+      }
+    }
+    return copy;
   }
 }
