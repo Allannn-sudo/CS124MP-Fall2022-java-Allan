@@ -74,6 +74,7 @@ public final class Client {
                  * return a List with the correct type.
                  * We wrap this in a try-catch to handle deserialization errors that may occur.
                  */
+                Log.i(TAG, response);
                 List<Place> places = OBJECT_MAPPER.readValue(response, new TypeReference<>() {});
                 // Pass the List<Place> to the callback
                 callback.accept(new ResultMightThrow<>(places));
