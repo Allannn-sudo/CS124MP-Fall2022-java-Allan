@@ -138,7 +138,11 @@ public final class Server extends Dispatcher {
       System.out.println(parts[2]);
       toReturn.add(
           new Place(
-              parts[0], parts[1], Double.parseDouble(parts[2]), Double.parseDouble(parts[3]), parts[4]));
+              parts[0],
+              parts[1],
+              Double.parseDouble(parts[2]),
+              Double.parseDouble(parts[3]),
+              parts[4]));
     }
     return toReturn;
   }
