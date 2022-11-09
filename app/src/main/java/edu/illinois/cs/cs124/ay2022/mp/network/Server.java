@@ -67,6 +67,52 @@ public final class Server extends Dispatcher {
         .setHeader("Content-Type", "application/json; charset=utf-8");
   }
 
+  private MockResponse postFavoritePlace(final RecordedRequest request)
+      throws JsonProcessingException {
+    // On failure, return a 400 Bad Request
+    // Deserialize Post body to Place object
+    // Check the resulting Place object to make sure it's valid
+    // Take some care with the latitude and longitude
+
+    // Valid Place object
+    // Insert it into our list of places
+    // If the ID is new, add it
+    // Otherwise, replace it
+    String input = request.getBody().readUtf8();
+    System.out.println(input);
+    try {
+      OBJECT_MAPPER.readValue(input, Place.class);
+    } catch (Exception e) {
+      return new MockResponse().setResponseCode(HttpURLConnection.HTTP_BAD_REQUEST);
+    }
+    Place placeA = OBJECT_MAPPER.readValue(input, Place.class);
+    if (placeA.getId() == null || placeA.getName() == null || placeA.getDescription() == null) {
+      return new MockResponse().setResponseCode(HttpURLConnection.HTTP_BAD_REQUEST);
+    }
+    if (placeA.getId().length() != 36) {
+      return new MockResponse().setResponseCode(HttpURLConnection.HTTP_BAD_REQUEST);
+    }
+    if (placeA.getLatitude() > 90.0
+        || placeA.getLatitude() < -90.0
+        || placeA.getLongitude() > 180.0
+        || placeA.getLongitude() < -180.0) {
+      return new MockResponse().setResponseCode(HttpURLConnection.HTTP_BAD_REQUEST);
+    }
+    if (placeA.getId().equals("")
+        || placeA.getName().equals("")
+        || placeA.getDescription().equals("")) {
+      return new MockResponse().setResponseCode(HttpURLConnection.HTTP_BAD_REQUEST);
+    }
+    for (int i = 0; i < places.size(); i++) {
+      if (places.get(i).getId().equals(placeA.getId())) {
+        places.remove(i);
+      }
+    }
+    places.add(placeA);
+    return new MockResponse()
+        .setResponseCode(HttpURLConnection.HTTP_OK)
+        .setHeader("Content-Type", "application/json; charset=utf-8");
+  }
   /*
    * Server request dispatcher.
    * Responsible for parsing the HTTP request and determining how to respond.
@@ -91,6 +137,7 @@ public final class Server extends Dispatcher {
       // Normalize the request method by converting to uppercase
       String method = request.getMethod().toUpperCase();
 
+      System.out.println(path + " " + method);
       // Main route dispatch tree, dispatching routes based on request path and type
       if (path.equals("") && method.equals("GET")) {
         // This route is used by the client during startup, so don't remove
@@ -102,6 +149,8 @@ public final class Server extends Dispatcher {
       } else if (path.equals("/places") && method.equals("GET")) {
         // Return the JSON list of restaurants for a GET request to the path /restaurants
         return getPlaces();
+      } else if (path.equals("/favoriteplace") && method.equals("POST")) {
+        return postFavoritePlace(request);
       }
 
       // If the route didn't match above, then we return a 404 NOT FOUND
@@ -113,6 +162,7 @@ public final class Server extends Dispatcher {
     } catch (Exception e) {
       // Return a HTTP 500 if an exception is thrown
       // You may need to add logging here during later checkpoints
+      System.out.println(e);
       return new MockResponse().setResponseCode(HttpURLConnection.HTTP_INTERNAL_ERROR);
     }
   }

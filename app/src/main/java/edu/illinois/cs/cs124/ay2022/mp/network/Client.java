@@ -16,7 +16,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.commons.lang3.NotImplementedException;
 import edu.illinois.cs.cs124.ay2022.mp.application.FavoritePlacesApplication;
 import edu.illinois.cs.cs124.ay2022.mp.models.Place;
 import edu.illinois.cs.cs124.ay2022.mp.models.ResultMightThrow;
@@ -29,6 +28,7 @@ import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
+import org.apache.commons.lang3.NotImplementedException;
 
 /*
  * Client object used by the app to interact with the place API server.
@@ -95,8 +95,9 @@ public final class Client {
     requestQueue.add(getPlacesRequest);
   }
 
-  public void postFavoritePlace(final Place place, final Consumer<ResultMightThrow<Boolean>> callback) {
-    //TODO: MP2
+  public void postFavoritePlace(
+      final Place place, final Consumer<ResultMightThrow<Boolean>> callback) {
+    // TODO: MP2
     throw new NotImplementedException();
   }
   /*
