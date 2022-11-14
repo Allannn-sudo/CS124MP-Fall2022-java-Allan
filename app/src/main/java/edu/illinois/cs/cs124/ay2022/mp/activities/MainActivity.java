@@ -32,7 +32,9 @@ import org.osmdroid.views.overlay.Overlay;
  */
 @SuppressWarnings("FieldCanBeLocal")
 public final class MainActivity extends AppCompatActivity
-    implements Consumer<ResultMightThrow<List<Place>>>, SearchView.OnQueryTextListener, MapEventsReceiver {
+    implements Consumer<ResultMightThrow<List<Place>>>,
+        SearchView.OnQueryTextListener,
+        MapEventsReceiver {
   // You may find this useful when adding logging
   private static final String TAG = MainActivity.class.getSimpleName();
 
