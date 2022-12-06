@@ -192,6 +192,7 @@ public final class Server extends Dispatcher {
               parts[1],
               Double.parseDouble(parts[2]),
               Double.parseDouble(parts[3]),
+              parts[5],
               parts[4]));
     }
     return toReturn;

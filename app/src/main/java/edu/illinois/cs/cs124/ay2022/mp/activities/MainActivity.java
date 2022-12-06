@@ -3,6 +3,7 @@ package edu.illinois.cs.cs124.ay2022.mp.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import edu.illinois.cs.cs124.ay2022.mp.R;
@@ -62,12 +63,13 @@ public final class MainActivity extends AppCompatActivity
   // Max and default map zoom levels
   public static final double MAP_MIN_ZOOM = 12.0;
   public static final double MAP_DEFAULT_ZOOM = 17.0;
-
   /*
    * onCreate is the first method called when this activity is created.
    * Code here normally does a variety of setup tasks, and functions somewhat similarly to a
    * constructor.
    */
+  private ImageView imageView;
+
   @Override
   protected void onCreate(final Bundle unused) {
     super.onCreate(unused);
@@ -105,6 +107,7 @@ public final class MainActivity extends AppCompatActivity
     IMapController mapController = mapView.getController();
     mapController.setZoom(MAP_DEFAULT_ZOOM);
     mapController.setCenter(new GeoPoint(40.10986682167534, -88.22831928981661));
+    imageView = findViewById(R.id.imageView);
   }
 
   /*
@@ -243,8 +246,154 @@ public final class MainActivity extends AppCompatActivity
 
   @Override
   public boolean singleTapConfirmedHelper(final GeoPoint p) {
-    Log.d(TAG, "singleTap " + p.getLatitude() + ", " + p.getLongitude());
-    return true;
+    if ((p.getLatitude() >= 40.0931 && p.getLatitude() <= 40.0932)
+        && (p.getLongitude() >= -88.2173 && p.getLongitude() <= -88.2172)) {
+      imageView.setImageResource(R.drawable.thomas_cai);
+    } else if ((p.getLatitude() >= 40.1124 && p.getLatitude() <= 40.1125)
+        && (p.getLongitude() >= -88.2283 && p.getLongitude() <= -88.2282)) {
+      imageView.setImageResource(R.drawable.william_deng);
+    } else if ((p.getLatitude() >= 40.1134 && p.getLatitude() <= 40.1135)
+        && (p.getLongitude() >= -88.2374 && p.getLongitude() <= -88.2373)) {
+      imageView.setImageResource(R.drawable.anna_liu);
+    } else if ((p.getLatitude() >= 40.1094 && p.getLatitude() <= 40.1095)
+        && (p.getLongitude() >= -88.2306 && p.getLongitude() <= -88.2305)) {
+      imageView.setImageResource(R.drawable.akash_kumar);
+    } else if ((p.getLatitude() >= 40.0807 && p.getLatitude() <= 40.0808)
+        && (p.getLongitude() >= -88.2038 && p.getLongitude() <= -88.2037)) {
+      imageView.setImageResource(R.drawable.chris_whamond);
+    } else if ((p.getLatitude() >= 40.1176 && p.getLatitude() <= 40.1177)
+        && (p.getLongitude() >= -88.2434 && p.getLongitude() <= -88.2433)) {
+      imageView.setImageResource(R.drawable.anagha_shenoy);
+    } else if ((p.getLatitude() >= 40.1165 && p.getLatitude() <= 40.1166)
+        && (p.getLongitude() >= -88.2297 && p.getLongitude() <= -88.2296)) {
+      imageView.setImageResource(R.drawable.haosen_yao);
+    } else if ((p.getLatitude() >= 40.1166 && p.getLatitude() <= 40.1167)
+        && (p.getLongitude() >= -88.2408 && p.getLongitude() <= -88.2407)) {
+      imageView.setImageResource(R.drawable.ruisong_li);
+    } else if ((p.getLatitude() >= 40.1094 && p.getLatitude() <= 40.1095)
+        && (p.getLongitude() >= -88.2284 && p.getLongitude() <= -88.2283)) {
+      imageView.setImageResource(R.drawable.gautham_jeyasankarane);
+    } else if ((p.getLatitude() >= 40.1120 && p.getLatitude() <= 40.1121)
+        && (p.getLongitude() >= -88.2272 && p.getLongitude() <= -88.2271)) {
+      imageView.setImageResource(R.drawable.daniel_odicho);
+    } else if ((p.getLatitude() >= 40.1094 && p.getLatitude() <= 40.1095)
+        && (p.getLongitude() >= -88.2312 && p.getLongitude() <= -88.2311)) {
+      imageView.setImageResource(R.drawable.peter_chen);
+    } else if ((p.getLatitude() >= 40.1149 && p.getLatitude() <= 40.1150)
+        && (p.getLongitude() >= -88.2282 && p.getLongitude() <= -88.2281)) {
+      imageView.setImageResource(R.drawable.zetai_liu);
+    } else if ((p.getLatitude() >= 40.0954 && p.getLatitude() <= 40.0955)
+        && (p.getLongitude() >= -88.2204 && p.getLongitude() <= -88.2203)) {
+      imageView.setImageResource(R.drawable.geoffrey_challen);
+    } else if ((p.getLatitude() >= 40.1103 && p.getLatitude() <= 40.1104)
+        && (p.getLongitude() >= -88.2301 && p.getLongitude() <= -88.2300)) {
+      imageView.setImageResource(R.drawable.arijit_ghosh_chowdhury);
+    } else if ((p.getLatitude() >= 40.1165 && p.getLatitude() <= 40.1166)
+        && (p.getLongitude() >= -88.2293 && p.getLongitude() <= -88.2292)) {
+      imageView.setImageResource(R.drawable.dj_figueiredo);
+    } else if ((p.getLatitude() >= 40.1091 && p.getLatitude() <= 40.1092)
+        && (p.getLongitude() >= -88.2313 && p.getLongitude() <= -88.2312)) {
+      imageView.setImageResource(R.drawable.niharika_bhattacharjee);
+    } else if ((p.getLatitude() >= 40.1291 && p.getLatitude() <= 40.1292)
+        && (p.getLongitude() >= -88.2386 && p.getLongitude() <= -88.2385)) {
+      imageView.setImageResource(R.drawable.kaiwen_ren);
+    } else if ((p.getLatitude() >= 40.1082 && p.getLatitude() <= 40.1083)
+        && (p.getLongitude() >= -88.2293 && p.getLongitude() <= -88.2292)) {
+      imageView.setImageResource(R.drawable.atharv_chandratre);
+    } else if ((p.getLatitude() >= 40.1104 && p.getLatitude() <= 40.1105)
+        && (p.getLongitude() >= -88.2328 && p.getLongitude() <= -88.2327)) {
+      imageView.setImageResource(R.drawable.yadu_reddy);
+    } else if ((p.getLatitude() >= 40.1126 && p.getLatitude() <= 40.1127)
+        && (p.getLongitude() >= -88.2094 && p.getLongitude() <= -88.2093)) {
+      imageView.setImageResource(R.drawable.di_liang);
+    } else if ((p.getLatitude() >= 40.1113 && p.getLatitude() <= 40.1114)
+        && (p.getLongitude() >= -88.2292 && p.getLongitude() <= -88.2291)) {
+      imageView.setImageResource(R.drawable.jane_liu);
+    } else if ((p.getLatitude() >= 40.1081 && p.getLatitude() <= 40.1082)
+        && (p.getLongitude() >= -88.2229 && p.getLongitude() <= -88.2228)) {
+      imageView.setImageResource(R.drawable.aden_krakman);
+    } else if ((p.getLatitude() >= 40.1104 && p.getLatitude() <= 40.1105)
+        && (p.getLongitude() >= -88.2325 && p.getLongitude() <= -88.2324)) {
+      imageView.setImageResource(R.drawable.raul_higareda);
+    } else if ((p.getLatitude() >= 40.1123 && p.getLatitude() <= 40.1124)
+        && (p.getLongitude() >= -88.2270 && p.getLongitude() <= -88.2269)) {
+      imageView.setImageResource(R.drawable.anushree_tibrewal);
+    } else if ((p.getLatitude() >= 40.1103 && p.getLatitude() <= 40.1104)
+        && (p.getLongitude() >= -88.2362 && p.getLongitude() <= -88.2361)) {
+      imageView.setImageResource(R.drawable.henry_tang);
+    } else if ((p.getLatitude() >= 40.1104 && p.getLatitude() <= 40.1105)
+        && (p.getLongitude() >= -88.2332 && p.getLongitude() <= -88.2331)) {
+      imageView.setImageResource(R.drawable.paul_brodnansky);
+    } else if ((p.getLatitude() >= 40.1173 && p.getLatitude() <= 40.1174)
+        && (p.getLongitude() >= -88.2434 && p.getLongitude() <= -88.2433)) {
+      imageView.setImageResource(R.drawable.prerana_singh);
+    } else if ((p.getLatitude() >= 40.1135 && p.getLatitude() <= 40.1136)
+        && (p.getLongitude() >= -88.2380 && p.getLongitude() <= -88.2379)) {
+      imageView.setImageResource(R.drawable.chris_sahyouni);
+    } else if ((p.getLatitude() >= 40.1035 && p.getLatitude() <= 40.1036)
+        && (p.getLongitude() >= -88.2347 && p.getLongitude() <= -88.2346)) {
+      imageView.setImageResource(R.drawable.justin_huang);
+    } else if ((p.getLatitude() >= 40.1172 && p.getLatitude() <= 40.1173)
+        && (p.getLongitude() >= -88.2161 && p.getLongitude() <= -88.2160)) {
+      imageView.setImageResource(R.drawable.bilal_karim);
+    } else if ((p.getLatitude() >= 40.1010 && p.getLatitude() <= 40.1011)
+        && (p.getLongitude() >= -88.2356 && p.getLongitude() <= -88.2355)) {
+      imageView.setImageResource(R.drawable.ram_goenka);
+    } else if ((p.getLatitude() >= 40.1105 && p.getLatitude() <= 40.1106)
+        && (p.getLongitude() >= -88.2340 && p.getLongitude() <= -88.2339)) {
+      imageView.setImageResource(R.drawable.jimmy_berg);
+    } else if ((p.getLatitude() >= 40.1105 && p.getLatitude() <= 40.1106)
+        && (p.getLongitude() >= -88.2306 && p.getLongitude() <= -88.2305)) {
+      imageView.setImageResource(R.drawable.dingsen_shi);
+    } else if ((p.getLatitude() >= 40.1074 && p.getLatitude() <= 40.1075)
+        && (p.getLongitude() >= -88.2270 && p.getLongitude() <= -88.2269)) {
+      imageView.setImageResource(R.drawable.ajay_karthikeyan);
+    } else if ((p.getLatitude() >= 40.1191 && p.getLatitude() <= 40.1192)
+        && (p.getLongitude() >= -88.2438 && p.getLongitude() <= -88.2437)) {
+      imageView.setImageResource(R.drawable.akash_kumar);
+    } else if ((p.getLatitude() >= 40.1101 && p.getLatitude() <= 40.1102)
+        && (p.getLongitude() >= -88.2314 && p.getLongitude() <= -88.2313)) {
+      imageView.setImageResource(R.drawable.akash_kumar);
+    } else if ((p.getLatitude() >= 40.1124 && p.getLatitude() <= 40.1125)
+        && (p.getLongitude() >= -88.2268 && p.getLongitude() <= -88.2267)) {
+      imageView.setImageResource(R.drawable.justin_bai);
+    } else if ((p.getLatitude() >= 40.1096 && p.getLatitude() <= 40.1097)
+        && (p.getLongitude() >= -88.2057 && p.getLongitude() <= -88.2056)) {
+      imageView.setImageResource(R.drawable.yana_zhao);
+    } else if ((p.getLatitude() >= 40.0961 && p.getLatitude() <= 40.0962)
+        && (p.getLongitude() >= -88.2582 && p.getLongitude() <= -88.2581)) {
+      imageView.setImageResource(R.drawable.akash_kumar);
+    } else if ((p.getLatitude() >= 40.1104 && p.getLatitude() <= 40.1105)
+        && (p.getLongitude() >= -88.2310 && p.getLongitude() <= -88.2309)) {
+      imageView.setImageResource(R.drawable.yasmine_munoz);
+    } else if ((p.getLatitude() >= 40.0995 && p.getLatitude() <= 40.0996)
+        && (p.getLongitude() >= -88.2505 && p.getLongitude() <= -88.2504)) {
+      imageView.setImageResource(R.drawable.akash_kumar);
+    } else if ((p.getLatitude() >= 40.1099 && p.getLatitude() <= 40.1100)
+        && (p.getLongitude() >= -88.2292 && p.getLongitude() <= -88.2291)) {
+      imageView.setImageResource(R.drawable.akash_kumar);
+    } else if ((p.getLatitude() >= 40.1064 && p.getLatitude() <= 40.1065)
+        && (p.getLongitude() >= -88.2214 && p.getLongitude() <= -88.2213)) {
+      imageView.setImageResource(R.drawable.nancy_jia);
+    } else if ((p.getLatitude() >= 40.1157 && p.getLatitude() <= 40.1158)
+        && (p.getLongitude() >= -88.2395 && p.getLongitude() <= -88.2384)) {
+      imageView.setImageResource(R.drawable.carlos_conley);
+    } else if ((p.getLatitude() >= 40.1124 && p.getLatitude() <= 40.1125)
+        && (p.getLongitude() >= -88.2281 && p.getLongitude() <= -88.2280)) {
+      imageView.setImageResource(R.drawable.aryan_patel);
+    } else if ((p.getLatitude() >= 40.1104 && p.getLatitude() <= 40.1105)
+        && (p.getLongitude() >= -88.2299 && p.getLongitude() <= -88.2298)) {
+      imageView.setImageResource(R.drawable.kevin_liu);
+    } else if ((p.getLatitude() >= 40.1102 && p.getLatitude() <= 40.1103)
+        && (p.getLongitude() >= -88.2292 && p.getLongitude() <= -88.2291)) {
+      imageView.setImageResource(R.drawable.armin_rafieyan);
+    } else if ((p.getLatitude() >= 40.1102 && p.getLatitude() <= 40.1103)
+        && (p.getLongitude() >= -88.2297 && p.getLongitude() <= -88.2296)) {
+      imageView.setImageResource(R.drawable.tina_dou);
+    } else {
+      imageView.setImageResource(R.drawable.akash_kumar);
+    }
+    return false;
   }
 
   @Override
@@ -256,6 +405,6 @@ public final class MainActivity extends AppCompatActivity
     launchAddFavoritePlace.putExtra("latitude", latitude);
     launchAddFavoritePlace.putExtra("longitude", longitude);
     startActivity(launchAddFavoritePlace);
-    return true;
+    return false;
   }
 }

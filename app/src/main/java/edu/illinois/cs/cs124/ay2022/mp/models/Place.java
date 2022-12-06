@@ -21,15 +21,18 @@ public final class Place {
       final String setName,
       final double setLatitude,
       final double setLongitude,
+      final String setNpg,
       final String setDescription) {
     id = setId;
     name = setName;
     latitude = setLatitude;
     longitude = setLongitude;
     description = setDescription;
+    npg = setNpg;
   }
 
   // ID of the place
+  private String npg;
   private String id;
 
   public String getId() {

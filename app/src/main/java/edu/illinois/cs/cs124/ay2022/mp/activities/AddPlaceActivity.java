@@ -43,7 +43,8 @@ public class AddPlaceActivity extends AppCompatActivity {
     saveButton.setOnClickListener(
         v -> {
           String description = info.getText().toString();
-          Place favorite = new Place(id, "Shakesphere", latitude, longitude, description);
+          String npg = "zz";
+          Place favorite = new Place(id, "Shakesphere", latitude, longitude, npg, description);
           startActivity(savePlace);
           savePlace.putExtra("condition", 5);
           int condition = savePlace.getIntExtra("condition", 0);

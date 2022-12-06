@@ -67,6 +67,7 @@ dependencies {
     implementation("com.squareup.okhttp3:mockwebserver:4.10.0")
     implementation("org.osmdroid:osmdroid-android:6.1.14")
     implementation("com.opencsv:opencsv:5.7.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
     testImplementation("com.github.cs125-illinois:gradlegrader:2022.10.0")
     testImplementation("junit:junit:4.13.2")
