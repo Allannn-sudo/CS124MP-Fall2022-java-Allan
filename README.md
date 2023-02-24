@@ -1,1 +1,1 @@
-An Android facorite restaurant developed by Allan.
+An Android favorite restaurant developed by Allan.
