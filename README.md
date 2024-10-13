@@ -7,5 +7,5 @@ ScreenShots:
 ![屏幕截图 2024-10-13 183241](https://github.com/user-attachments/assets/9fd4bbf2-acdc-41fc-8892-06ca9c4970d8)
 (Information screen)
 
-Video for a short demo on Android Studio:
+Demo Video of the app on Android Studio:
 https://www.youtube.com/watch?v=V9TrIgnEjLY
